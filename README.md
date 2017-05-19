@@ -79,7 +79,7 @@ This is a fully working canvas for a React Web App with the following characteri
 If you are interested on re-creating this app from scratch, [we've documented most of the steps](#starting-from-scratch).
 This app was initially based on [this great blog post](https://www.fullstackreact.com/articles/using-create-react-app-with-a-server/) and their [repository](https://github.com/fullstackreact/food-lookup-demo). It may be a good idea to follow that post first, before tackling ours -  which adds more features e.g., redux, sagas, routes...
 
-##Install or update NVM and Node
+## Install or update NVM and Node
 
 #### NVM
 
