@@ -65,7 +65,7 @@ app.get('/api/books', (req, res) => {
                   e[c] = entry[c];
                 });
                 return e;
-                }),
+                })
               );
             } else {
               res.json([]);
