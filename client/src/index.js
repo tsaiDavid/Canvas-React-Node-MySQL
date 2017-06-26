@@ -2,7 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
 import ConnectedSearch from './components/Search'
-import { Router, Route, IndexRoute, browserHistory } from 'react-router'
+import { Router, Route } from 'react-router'
+import createHistory from 'history/createBrowserHistory'
 import { createStore, applyMiddleware } from 'redux'
 import { Provider } from 'react-redux'
 import createSagaMiddleware from 'redux-saga'
@@ -15,6 +16,8 @@ import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/css/bootstrap-theme.css';
 import 'react-bootstrap-table/dist/react-bootstrap-table-all.min.css'
 
+//history 
+const history = createHistory()
 
 //saga middleware
 const sagaMiddleware = createSagaMiddleware()
@@ -33,11 +36,11 @@ store.dispatch({type: 'FETCH_SEARCH_DATA', payload:{firstName: "*"}})
 
 ReactDOM.render(
   <Provider store={store}>
-    <Router history={browserHistory}>
+    <Router history={history}>
+      <div>
       <Route path='/' component={App}> </Route>
-      <Route path='/search' component={App}>
-        <IndexRoute component={ConnectedSearch}/>
-      </Route>
+      <Route exact path='/search' component={ConnectedSearch}></Route>
+      </div>
     </Router>
     </Provider>,
     document.getElementById('root')
