@@ -5,12 +5,12 @@ body {
 }
 
 .App {
-  margin-top: 5em;
+  /* margin-top: 5em; */
 }
-
+/* 
 #author-search {
   margin-top: 5em;
-}
+} */
 
 .navbar-brand {
   display: flex;

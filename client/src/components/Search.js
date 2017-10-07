@@ -1,10 +1,14 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom'
-import { BootstrapTable, TableHeaderColumn } from 'react-bootstrap-table';
+// import { BootstrapTable, TableHeaderColumn } from 'react-bootstrap-table';
+import { Table, Column, Cell } from '@blueprintjs/table';
 import {Form, FormGroup, FormControl, Button} from 'react-bootstrap'
 import { connect } from 'react-redux'
 import {Grid, Row, Col} from 'react-bootstrap'
 
+const renderCell = (rowIndex) => {
+  return <Cell>{`$${(rowIndex * 10).toFixed(2)}`}</Cell>;
+};
 
 class Search extends Component {
 
@@ -31,7 +35,6 @@ class Search extends Component {
     let searchInput = ReactDOM.findDOMNode(this.refs.searchInput)
     searchInput.value=""
     this.props.fetchData({firstName: "*"})
-
   }
 
   onSubmit(e)
@@ -44,7 +47,7 @@ class Search extends Component {
     let titleAndForm = (
       <Grid>
       <Row className="show-grid">
-        <Col smOffset={1} sm={11}> <h2> Filter Authors Database by First Name</h2></Col>
+        <Col smOffset={1} sm={11}> <h2> Filter Users Database by First Name</h2></Col>
       </Row>
       <Row className="show-grid">
         <Col md={4}>
@@ -73,51 +76,62 @@ class Search extends Component {
     return titleAndForm;
   }
 
-  renderFullForm(){
-    let fullForm = (
-      <Grid>
-      <Row className="show-grid">
-        <Col smOffset={1} sm={11}> <h2> Filter Authors Database by First Name</h2></Col>
-      </Row>
-      <Row className="show-grid">
-        <Col md={4}>
-          <Form horizontal onSubmit={this.onSubmit}>
-          <FormGroup controlId="formInlineEmail">
-             <Col   smOffset={3} sm={4}>
-              <FormControl
-              type="text"
-              placeholder="First Name"
-              onChange={this.onChange}
-              />
-             </Col>
-             <Col  sm={2}>
-               <Button type="button" onClick={ this.onClear }>
-                 Clear
-               </Button>
-             </Col>
-          </FormGroup>
-          </Form>
-        </Col>
-      </Row>
-      <Row className="top-buffer"/>
-      <Row className="show-grid">
-        <Col smOffset={1} sm={10}>
-        <BootstrapTable data={ this.props.searchData } search={ false }>
-        <TableHeaderColumn dataField='first_name'>First Name</TableHeaderColumn>
-        <TableHeaderColumn dataField='last_name'isKey={ true } >Last Name</TableHeaderColumn>
-        </BootstrapTable>
-        </Col>
-      </Row>
-      </Grid>
-    );
-    return fullForm
-  }
+  // renderFullForm(){
+  //   let fullForm = <Grid>
+  //       <Row className="show-grid">
+  //         <Col smOffset={1} sm={11}>
+  //           {" "}
+  //           <h2> Filter Authors Database by First Name</h2>
+  //         </Col>
+  //       </Row>
+  //       <Row className="show-grid">
+  //         <Col md={4}>
+  //           <Form horizontal onSubmit={this.onSubmit}>
+  //             <FormGroup controlId="formInlineEmail">
+  //               <Col smOffset={3} sm={4}>
+  //                 <FormControl type="text" placeholder="First Name" onChange={this.onChange} />
+  //               </Col>
+  //               <Col sm={2}>
+  //                 <Button type="button" onClick={this.onClear}>
+  //                   Clear
+  //                 </Button>
+  //               </Col>
+  //             </FormGroup>
+  //           </Form>
+  //         </Col>
+  //       </Row>
+  //       <Row className="top-buffer" />
+  //       <Row className="show-grid">
+  //         <Col smOffset={1} sm={10}>
+  //           <BootstrapTable data={this.props.searchData} search={false}>
+  //             <TableHeaderColumn dataField="first_name">
+  //               First Name
+  //             </TableHeaderColumn>
+  //             <TableHeaderColumn dataField="last_name" isKey={true}>
+  //               Last Name
+  //             </TableHeaderColumn>
+  //           </BootstrapTable>
+  //         </Col>
+  //       </Row>
+  //       <Table numRows={5}>
+  //         <Column />
+  //         <Column />
+  //         <Column />
+  //       </Table>;
+  //     </Grid>;
+  //   return fullForm
+  // }
 
   render() {
 
+
+
    if( this.props.searchData.length !== 0){
       return (
-        this.renderFullForm()
+        // this.renderFullForm()
+        <Table numRows={10}>
+  <Column name="Dollars" renderCell={renderCell} />
+</Table>
       );
     }else{
       return (
