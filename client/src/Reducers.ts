@@ -4,7 +4,7 @@ var initialState = {
   searchData: []
 };
 
-function mainReducer(state = initialState, action){
+function mainReducer(state = initialState, action: any){
   switch (action.type) {
     case 'CHANGE_SEARCH_DATA':
       return {

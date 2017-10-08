@@ -13,16 +13,24 @@
     "babel-preset-es2015": "6.24.1",
     "babel-preset-stage-0": "6.24.1",
     "express": "4.15.3",
+    "express-graphql": "^0.6.11",
     "fs": "0.0.1-security",
-    "mysql": "^2.11.1"
+    "global": "^4.3.2",
+    "graphql": "^0.11.7",
+    "join-monster": "^2.0.15",
+    "knex": "^0.13.0",
+    "mysql": "^2.11.1",
+    "nodemon": "^1.12.1"
   },
   "scripts": {
     "start": "concurrently \"npm run server\" \"npm run client\"",
-    "server": "node server.js",
+    "server": "nodemon server.js",
     "client": "node start-client.js",
     "dev": "echo \"This command has been deprecated. Use 'npm start'\" && exit 1"
   },
+  "postinstall": "rm - rf node_modules/@types/async",
   "devDependencies": {
-    "concurrently": "^3.1.0"
+    "concurrently": "^3.1.0",
+    "typescript": "^2.5.3"
   }
 }

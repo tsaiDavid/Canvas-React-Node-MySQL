@@ -4,7 +4,13 @@
   "private": true,
   "proxy": "http://localhost:3001/",
   "devDependencies": {
-    "react-scripts": "1.0.7"
+    "@types/react": "^16.0.10",
+    "@types/react-dom": "^16.0.1",
+    "@types/react-redux": "^5.0.10",
+    "@types/react-router": "^4.0.15",
+    "@types/react-router-dom": "^4.0.8",
+    "react-scripts": "1.0.7",
+    "react-scripts-ts": "^2.7.0"
   },
   "dependencies": {
     "@blueprintjs/table": "^1.27.0",
@@ -23,9 +29,9 @@
     "redux-saga": "^0.15.4"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "start": "react-scripts-ts start",
+    "build": "react-scripts-ts build",
+    "test": "react-scripts-ts test --env=jsdom",
+    "eject": "react-scripts-ts eject"
   }
 }

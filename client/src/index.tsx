@@ -1,18 +1,18 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import * as React from 'react';
+import * as ReactDOM from 'react-dom';
 import App from './App';
 import { BrowserRouter} from 'react-router-dom'
-// import ConnectedSearch from './components/Search'
-import ConnectedSearch from './components/TestTable'
-import { Router, Route } from 'react-router'
+import ConnectedSearch from './components/Search'
+// import ConnectedSearch from './components/TestTable'
+import { Route } from 'react-router'
 // import createHistory from 'history/createBrowserHistory'
 import { createStore, applyMiddleware } from 'redux'
 import { Provider } from 'react-redux'
 import createSagaMiddleware from 'redux-saga'
 import mainReducer from './Reducers'
 import watchFetchSearchData from './Sagas.js'
-
 import './index.css';
+import "@blueprintjs/table/dist/table.css";
 
 //saga middleware
 const sagaMiddleware = createSagaMiddleware()
@@ -27,7 +27,6 @@ sagaMiddleware.run(watchFetchSearchData)
 
 //fetch initial data
 store.dispatch({type: 'FETCH_SEARCH_DATA', payload:{firstName: "*"}})
-
 
 ReactDOM.render(
   <Provider store={store}>
