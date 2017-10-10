@@ -9,15 +9,20 @@
     "@types/react-redux": "^5.0.10",
     "@types/react-router": "^4.0.15",
     "@types/react-router-dom": "^4.0.8",
-    "react-scripts": "1.0.7",
+    "react-scripts": "^1.0.14",
     "react-scripts-ts": "^2.7.0"
   },
   "dependencies": {
     "@blueprintjs/table": "^1.27.0",
+    "@types/async": "2.0.31",
+    "apollo-client": "^1.9.3",
     "bootstrap": "^3.3.7",
+    "graphql": "^0.11.7",
+    "graphql-tag": "^2.4.2",
     "history": "^4.6.3",
     "react": "^15.4.2",
     "react-addons-css-transition-group": "^15.6.2",
+    "react-apollo": "^1.4.16",
     "react-bootstrap": "^0.31.0",
     "react-bootstrap-table": "^3.1.2",
     "react-dom": "^15.4.2",
@@ -29,9 +34,9 @@
     "redux-saga": "^0.15.4"
   },
   "scripts": {
-    "start": "react-scripts-ts start",
-    "build": "react-scripts-ts build",
-    "test": "react-scripts-ts test --env=jsdom",
-    "eject": "react-scripts-ts eject"
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
   }
 }

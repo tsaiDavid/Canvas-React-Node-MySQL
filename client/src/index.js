@@ -7,13 +7,12 @@ import ConnectedSearch from './components/Search'
 import { Route } from 'react-router'
 // import createHistory from 'history/createBrowserHistory'
 import { createStore, applyMiddleware } from 'redux'
-import { Provider } from 'react-redux'
 import createSagaMiddleware from 'redux-saga'
 import mainReducer from './Reducers'
 import watchFetchSearchData from './Sagas.js'
 import './index.css';
 import "@blueprintjs/table/dist/table.css";
-
+import { ApolloClient, ApolloProvider, gql } from 'react-apollo';
 //saga middleware
 const sagaMiddleware = createSagaMiddleware()
 
@@ -22,6 +21,8 @@ const store = createStore(
   mainReducer,
   applyMiddleware(sagaMiddleware)
 )
+
+const client = new ApolloClient()
 // activate the saga(s)
 sagaMiddleware.run(watchFetchSearchData)
 
@@ -29,13 +30,15 @@ sagaMiddleware.run(watchFetchSearchData)
 store.dispatch({type: 'FETCH_SEARCH_DATA', payload:{firstName: "*"}})
 
 ReactDOM.render(
-  <Provider store={store}>
+  <ApolloProvider client={client} store={store}>
     <BrowserRouter>
       <div>
-      <Route path='/' component={App}> </Route>
-      <Route exact path='/search' component={ConnectedSearch}></Route>
+        <Route path="/" component={App}>
+          {" "}
+        </Route>
+        <Route exact path="/search" component={ConnectedSearch} />
       </div>
     </BrowserRouter>
-    </Provider>,
-    document.getElementById('root')
+  </ApolloProvider>,
+  document.getElementById("root")
 );

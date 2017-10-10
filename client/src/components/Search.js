@@ -4,14 +4,19 @@ import { BootstrapTable, TableHeaderColumn } from 'react-bootstrap-table';
 import { Form, FormGroup, FormControl, Button } from 'react-bootstrap'
 import { connect } from 'react-redux'
 import { Grid, Row, Col } from 'react-bootstrap'
+import { gql, graphql } from "react-apollo";
 
-interface SearchProps {
-  fetchData: (any) => void;
-  searchData: any;
-}
+const myQuery = gql`
+  query {
+    users {
+      first_name
+      last_name
+    }
+  }
+`;
 
-class Search extends React.Component<SearchProps, {}> {
-
+@graphql(myQuery)
+class Search extends React.Component {
   constructor(props) {
     super(props);
 
